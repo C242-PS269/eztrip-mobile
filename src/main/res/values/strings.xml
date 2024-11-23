@@ -1,0 +1,49 @@
+<!-- res/values/strings.xml -->
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Capstone</string>
+
+    <!-- Activity Titles -->
+    <string name="title_login">Login</string>
+    <string name="title_signup">Sign Up</string>
+
+    <!-- Button Text -->
+    <string name="button_login">Login</string>
+    <string name="button_sign_up">Sign Up</string>
+
+    <!-- Input Hints -->
+    <string name="hint_username">Username</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+
+    <!-- Other Messages -->
+    <string name="welcome_message">Welcome to Capstone!</string>
+    <string name="login_message">Please login to continue.</string>
+    <string name="signup_message">Create a new account to get started.</string>
+
+        <string name="content_desc_notification_icon">Ikon Notifikasi</string>
+        <string name="content_desc_search_icon">Ikon Pencarian</string>
+        <string name="content_desc_wisata_icon">Ikon Wisata</string>
+        <string name="content_desc_akomodasi_icon">Ikon Akomodasi</string>
+        <string name="content_desc_restoran_icon">Ikon Restoran</string>
+        <string name="content_desc_rute_icon">Ikon Rute</string>
+        <string name="content_desc_banner">Banner Iklan</string>
+    <string name="content_desc_notification">Ikon Notifikasi</string>
+    <string name="content_desc_search">Ikon Pencarian</string>
+    <string name="content_desc_wisata">Ikon Wisata</string>
+    <string name="content_desc_akomodasi">Ikon Akomodasi</string>
+    <string name="content_desc_restoran">Ikon Restoran</string>
+    <string name="content_desc_rute">Ikon Rute</string>
+    <string name="search_hint">Mau kemana hari ini sayang</string>
+    <string name="recommendations_today">Rekomendasi Hari Ini</string>
+    <string name="wisata">Wisata</string>
+    <string name="akomodasi">Akomodasi</string>
+    <string name="restoran">Restoran</string>
+    <string name="rute">Rute</string>
+    <string name="greeting_text">Hello, %s!</string>
+    <string name="edit_profile_picture">Edit Profile Picture</string>
+    <string name="content_desc_settings">Settings Icon</string>
+
+
+</resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homePageActivity"> <!-- Start di Home jika login berhasil -->
+
+    <!-- Main Activity -->
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.project.capstone.MainActivity"
+        android:label="Main Activity">
+        <action
+            android:id="@+id/action_main_to_login"
+            app:destination="@id/loginActivity" />
+        <action
+            android:id="@+id/action_main_to_signup"
+            app:destination="@id/signUpActivity" />
+    </activity>
+
+    <!-- Login Activity -->
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.project.capstone.ui.login.LoginActivity"
+        android:label="Login Activity">
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/homePageActivity" />
+    </activity>
+
+    <!-- Sign Up Activity -->
+    <activity
+        android:id="@+id/signUpActivity"
+        android:name="com.project.capstone.ui.signup.SignUpActivity"
+        android:label="Sign Up Activity">
+        <action
+            android:id="@+id/action_signup_to_main"
+            app:destination="@id/mainActivity" />
+    </activity>
+
+    <!-- Home Page Activity -->
+    <activity
+        android:id="@+id/homePageActivity"
+        android:name="com.project.capstone.ui.home.HomePageActivity"
+        android:label="Home Page Activity">
+        <action
+            android:id="@+id/action_home_to_expenses"
+            app:destination="@id/expensesActivity" />
+        <action
+            android:id="@+id/action_home_to_favorites"
+            app:destination="@id/favoritesActivity" />
+        <action
+            android:id="@+id/action_home_to_photoTrack"
+            app:destination="@id/photoTrackActivity" />
+        <action
+            android:id="@+id/action_home_to_profile"
+            app:destination="@id/profileActivity" />
+    </activity>
+
+    <!-- Expenses Activity -->
+    <activity
+        android:id="@+id/expensesActivity"
+        android:name="com.project.capstone.ui.expenses.ExpensesActivity"
+        android:label="Expenses Activity" />
+
+    <!-- Favorites Activity -->
+    <activity
+        android:id="@+id/favoritesActivity"
+        android:name="com.project.capstone.ui.favorites.FavoritesActivity"
+        android:label="Favorites Activity" />
+
+    <!-- Photo Track Activity -->
+    <activity
+        android:id="@+id/photoTrackActivity"
+        android:name="com.project.capstone.ui.photo.PhotoTrackActivity"
+        android:label="Photo Track Activity" />
+
+    <!-- Profile Activity -->
+    <activity
+        android:id="@+id/profileActivity"
+        android:name="com.project.capstone.ui.profile.ProfileActivity"
+        android:label="Profile Activity">
+        <action
+            android:id="@+id/action_profile_to_editProfile"
+            app:destination="@id/editProfileActivity" />
+    </activity>
+
+    <!-- Edit Profile Activity -->
+    <activity
+        android:id="@+id/editProfileActivity"
+        android:name="com.project.capstone.ui.profile.EditProfileActivity"
+        android:label="Edit Profile Activity" />
+</navigation>

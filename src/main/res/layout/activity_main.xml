@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/landingbg" />
+
+    <!-- App Logo -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="80dp" />
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/logoImage"
+        android:layout_marginTop="10dp"
+    android:background="@drawable/button_background"
+    android:textColor="@color/white"
+    android:alpha="0.8"
+    android:padding="10dp" />
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Daftar"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnLogin"
+        android:layout_marginTop="30dp"
+    android:background="@drawable/button_background"
+    android:textColor="@color/white"
+    android:alpha="0.8"
+    android:padding="10dp" />
+
+</RelativeLayout>
+
+
