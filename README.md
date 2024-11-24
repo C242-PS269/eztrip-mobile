@@ -1,4 +1,7 @@
-![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
+<div align=justify>
+  <img src="https://img.shields.io/badge/EzTrip-3DDC84?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white"/>
+</div>
 
 <div align=center>
     <h1>EzTrip: AI Travel Companion App in Your Hand!</h1>
