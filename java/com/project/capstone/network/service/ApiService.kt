@@ -60,7 +60,7 @@ interface ApiService {
     @POST("")
     fun getVisitedAccommodations(@Body request: AccommodationVisitedRequest): Call<AccommodationPlaceResponse>
 
-    @POST("api/model/recommendations/culinaries/visited")
+    @POST("")
     fun getVisitedCulinaries(@Body request: CulinaryVisitedRequest): Call<PlaceResponse>
 
 }
