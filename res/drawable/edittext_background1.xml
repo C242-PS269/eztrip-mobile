@@ -1,0 +1,6 @@
+<!-- res/drawable/edittext_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/white"/> <!-- Warna latar belakang -->
+    <corners android:radius="8dp"/> <!-- Sudut melengkung -->
+    <stroke android:color="@color/md_theme_onSurfaceVariant" android:width="1dp"/> <!-- Garis tepi -->
+</shape>
