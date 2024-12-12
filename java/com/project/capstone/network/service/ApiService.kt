@@ -22,42 +22,42 @@ import retrofit2.http.Path
 interface ApiService {
 
     // Endpoint to create an itinerary based on user ID, budget, and optional city
-    @POST("api/data/features/itineraries")
+    @POST("")
     fun postItinerary(@Body request: ItineraryRequest): Call<ItineraryResponse>
 
     // Endpoint to get itineraries based on user_id
-    @GET("api/data/features/itineraries/user/{user_id}")
+    @GET("")
     fun getUserItineraries(@Path("user_id") userId: String): Call<ItineraryResponse>
 
-    @POST("api/data/reviews/submit")
+    @POST("")
     fun submitReview(@Body reviewRequest: ReviewRequest): Call<ReviewResponse>
 
-    @GET("api/data/places/tours/all")
+    @GET("")
     fun getRandomTours(): Call<PlaceResponse>
 
-    @GET("api/data/places/accommodations/all")
+    @GET("")
     fun getRandomAccommodations(): Call<PlaceResponse>
 
-    @GET("api/data/places/culinaries/all")
+    @GET("")
     fun getRandomCulinaries(): Call<PlaceResponse>
 
-    @GET("api/data/reviews/{place_id}")
+    @GET("")
     fun getReviewsByPlaceId(@Path("place_id") placeId: String): Call<List<Review>>
 
     // Endpoint untuk mendapatkan rekomendasi wisata berdasarkan filter
-    @POST("api/model/recommendations/tours")
+    @POST("")
     fun getFilteredTours(@Body request: TourFilterRequest): Call<PlaceResponse>
 
-    @POST("api/model/recommendations/accommodations")
+    @POST("")
     fun getFilteredAccommodations(@Body filter: AccommodationFilterRequest): Call<PlaceResponse>
 
-    @POST("api/model/recommendations/culinaries")
+    @POST("")
     fun getFilteredCulinaries(@Body request: CulinaryFilterRequest): Call<PlaceResponse>
 
-    @POST("api/model/recommendations/tours/visited")
+    @POST("")
     fun getVisitedTours(@Body request: TourVisitedRequest): Call<PlaceResponse>
 
-    @POST("api/model/recommendations/accommodations/visited")
+    @POST("")
     fun getVisitedAccommodations(@Body request: AccommodationVisitedRequest): Call<AccommodationPlaceResponse>
 
     @POST("api/model/recommendations/culinaries/visited")
