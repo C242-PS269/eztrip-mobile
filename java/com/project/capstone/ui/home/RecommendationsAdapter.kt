@@ -7,24 +7,31 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.capstone.R
 
-class RecommendationsAdapter(private val recommendations: List<String>) :
-    RecyclerView.Adapter<RecommendationsAdapter.ViewHolder>() {
+class RecommendationsAdapter(
+    private val recommendations: List<String>,
+    private val onClick: (String) -> Unit // Tambahkan callback untuk klik item
+) : RecyclerView.Adapter<RecommendationsAdapter.ViewHolder>() {
 
-    // ViewHolder class to hold references to the views in each item
+    // ViewHolder untuk menyimpan referensi ke elemen UI
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvRecommendation: TextView = itemView.findViewById(R.id.tvRecommendation)
+
+        init {
+            itemView.setOnClickListener {
+                val recommendation = recommendations[adapterPosition]
+                onClick(recommendation) // Panggil callback saat item diklik
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // Inflate the layout for each RecyclerView item
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_recommendation, parent, false)
+            .inflate(R.layout.item_recommendation, parent, false) // Layout item
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // Bind data to the TextView in each item
-        holder.tvRecommendation.text = recommendations[position]
+        holder.tvRecommendation.text = recommendations[position] // Set teks rekomendasi
     }
 
     override fun getItemCount(): Int = recommendations.size

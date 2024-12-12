@@ -2,8 +2,10 @@ package com.project.capstone.ui.expenses
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -17,6 +19,7 @@ class ManualExpenseActivity : AppCompatActivity() {
 
     private lateinit var expenseAmountEditText: EditText
     private lateinit var descriptionEditText: EditText
+    private lateinit var categorySpinner: Spinner
     private lateinit var addExpenseButton: Button
     private lateinit var expenseRepository: ExpenseRepository
     private var userId: Int = -1
@@ -36,7 +39,14 @@ class ManualExpenseActivity : AppCompatActivity() {
         // Find views
         expenseAmountEditText = findViewById(R.id.editTextNumber)
         descriptionEditText = findViewById(R.id.editTextKeterangan)
+        categorySpinner = findViewById(R.id.spinnerCategory)
         addExpenseButton = findViewById(R.id.btnSubmit)
+
+        // Initialize the spinner with categories
+        val categories = listOf("Drink", "Food", "Travel", "Shopping", "Hotel", "Transportation", "Other")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        categorySpinner.adapter = adapter
 
         // Initialize the database and repository
         val db = AppDatabase.getDatabase(this)
@@ -46,6 +56,7 @@ class ManualExpenseActivity : AppCompatActivity() {
         addExpenseButton.setOnClickListener {
             val amount = expenseAmountEditText.text.toString().trim()
             val description = descriptionEditText.text.toString().trim()
+            val category = categorySpinner.selectedItem.toString()
 
             if (amount.isEmpty() || description.isEmpty()) {
                 Toast.makeText(this, "Harap isi semua kolom!", Toast.LENGTH_SHORT).show()
@@ -53,7 +64,7 @@ class ManualExpenseActivity : AppCompatActivity() {
                 val expense = Expenses(
                     userId = userId, // Use the actual userId passed from ExpensesActivity
                     amount = amount.toDouble(),
-                    category = "Miscellaneous",  // Set a default category or allow the user to select
+                    category = category,  // Use the selected category
                     description = description,
                     date = System.currentTimeMillis().toString() // Use current timestamp for the date
                 )

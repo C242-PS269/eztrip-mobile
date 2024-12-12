@@ -30,6 +30,7 @@ class EditProfileActivity : AppCompatActivity() {
         val db = AppDatabase.getDatabase(this)
         val profileRepository = ProfileRepository(db.profileDao())
 
+        // Get the userId passed through Intent
         val userId = intent.getIntExtra("user_id", -1)
         if (userId == -1) {
             Toast.makeText(this, "Error: User ID tidak ditemukan", Toast.LENGTH_SHORT).show()
@@ -37,12 +38,14 @@ class EditProfileActivity : AppCompatActivity() {
             return
         }
 
+        // Bind UI elements
         val profileImage = findViewById<ImageView>(R.id.profile_image)
         val etName = findViewById<EditText>(R.id.et_name)
         val etEmail = findViewById<EditText>(R.id.et_email)
         val etPhone = findViewById<EditText>(R.id.et_phone)
         val btnSave = findViewById<Button>(R.id.btn_save)
 
+        // Load the profile data
         lifecycleScope.launch {
             val profile = profileRepository.getProfileByUserId(userId)
             profile?.let {
@@ -52,7 +55,7 @@ class EditProfileActivity : AppCompatActivity() {
                     etEmail.setText(it.email)
                     etPhone.setText(it.phone)
 
-                    // Gunakan Glide untuk memuat gambar
+                    // Use Glide to load the profile image if available
                     if (it.imageUri.isNotEmpty()) {
                         imageUri = Uri.parse(it.imageUri)
                         Glide.with(this@EditProfileActivity)
@@ -66,24 +69,27 @@ class EditProfileActivity : AppCompatActivity() {
             }
         }
 
-        // Pilih gambar dari galeri
+        // Open image picker on image click
         profileImage.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             intent.type = "image/*"
             startActivityForResult(intent, 1)
         }
 
+        // Save button click listener
         btnSave.setOnClickListener {
             val name = etName.text.toString().trim()
             val email = etEmail.text.toString().trim()
             val phone = etPhone.text.toString().trim()
             val imageUriString = imageUri?.toString() ?: ""
 
+            // Validate input fields
             if (name.isEmpty() || email.isEmpty() || phone.isEmpty()) {
                 Toast.makeText(this, "Semua bidang harus diisi!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+            // Save profile data to database
             lifecycleScope.launch {
                 val updatedProfile = Profile(
                     profileId = profileId,
@@ -97,6 +103,10 @@ class EditProfileActivity : AppCompatActivity() {
                 runOnUiThread {
                     if (result > 0) {
                         Toast.makeText(this@EditProfileActivity, "Profil berhasil diperbarui!", Toast.LENGTH_SHORT).show()
+                        // Go back to ProfileActivity
+                        val intent = Intent(this@EditProfileActivity, ProfileActivity::class.java)
+                        intent.putExtra("user_id", userId)
+                        startActivity(intent)
                         finish()
                     } else {
                         Toast.makeText(this@EditProfileActivity, "Terjadi kesalahan saat menyimpan.", Toast.LENGTH_SHORT).show()
@@ -106,13 +116,14 @@ class EditProfileActivity : AppCompatActivity() {
         }
     }
 
+    // Handle the result of image picking (onActivityResult)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1 && resultCode == Activity.RESULT_OK && data != null) {
             imageUri = data.data
             val profileImage = findViewById<ImageView>(R.id.profile_image)
 
-            // Gunakan Glide untuk memuat gambar dari URI
+            // Load selected image using Glide
             Glide.with(this)
                 .load(imageUri)
                 .placeholder(R.drawable.ic_profile_placeholder)

@@ -59,7 +59,7 @@ class ExpensesActivity : AppCompatActivity() {
 
         // Setup RecyclerView for displaying expenses
         expensesRecyclerView = findViewById(R.id.rvExpenses)
-        expenseAdapter = ExpenseAdapter(expensesList)
+        expenseAdapter = ExpenseAdapter(expensesList, expenseRepository, this) // Pass 'this' as lifecycleOwner
         expensesRecyclerView.layoutManager = LinearLayoutManager(this)
         expensesRecyclerView.adapter = expenseAdapter
 

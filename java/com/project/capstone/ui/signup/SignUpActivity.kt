@@ -1,7 +1,10 @@
 package com.project.capstone.ui.signup
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.InputType
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -13,6 +16,7 @@ import com.project.capstone.database.user.User
 import com.project.capstone.database.user.UserRepository
 import com.project.capstone.database.expenses.Expenses
 import com.project.capstone.database.expenses.ExpenseRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -20,6 +24,7 @@ import java.util.*
 class SignUpActivity : AppCompatActivity() {
 
     private var arePasswordsVisible = false
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +40,9 @@ class SignUpActivity : AppCompatActivity() {
         val etConfirmPassword = findViewById<EditText>(R.id.etConfirmPassword)
         val btnSignUp = findViewById<Button>(R.id.btnSignUp)
         val tvTogglePasswords = findViewById<TextView>(R.id.tvTogglePasswords)
+        progressBar = findViewById(R.id.progressBar) // Tambahkan progress bar di layout
+
+        progressBar.visibility = View.GONE
 
         // Toggle visibility for password fields
         tvTogglePasswords.setOnClickListener {
@@ -46,8 +54,8 @@ class SignUpActivity : AppCompatActivity() {
             }
             etPassword.inputType = inputType
             etConfirmPassword.inputType = inputType
-            etPassword.setSelection(etPassword.text.length) // Retain cursor position
-            etConfirmPassword.setSelection(etConfirmPassword.text.length) // Retain cursor position
+            etPassword.setSelection(etPassword.text.length)
+            etConfirmPassword.setSelection(etConfirmPassword.text.length)
             tvTogglePasswords.text = if (arePasswordsVisible) "Hide" else "Show"
         }
 
@@ -66,33 +74,37 @@ class SignUpActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            progressBar.visibility = View.VISIBLE // Tampilkan progress bar
+
             lifecycleScope.launch {
+                delay(1000) // Delay 1 detik
+
                 val existingUser = userRepository.getUserByUsername(username)
                 if (existingUser != null) {
                     runOnUiThread {
+                        progressBar.visibility = View.GONE
                         Toast.makeText(this@SignUpActivity, "Username sudah digunakan!", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     val userId = userRepository.insertUser(User(username = username, password = password))
 
-                    // Insert profile
                     profileRepository.insertProfile(Profile(userId = userId.toInt()))
 
-                    // Insert a default expense associated with the user
-                    val defaultCategory = "General" // Default category
-                    val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date()) // Current date
+                    val defaultCategory = "General"
+                    val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
                     val defaultExpense = Expenses(
                         userId = userId.toInt(),
-                        amount = 0.0, // Default amount
-                        description = "Initial Expense", // Default description
-                        category = defaultCategory, // Default category
-                        date = currentDate // Current date
+                        amount = 0.0,
+                        description = "Initial Expense",
+                        category = defaultCategory,
+                        date = currentDate
                     )
                     expenseRepository.insertExpense(defaultExpense)
 
                     runOnUiThread {
+                        progressBar.visibility = View.GONE
                         Toast.makeText(this@SignUpActivity, "Pendaftaran berhasil!", Toast.LENGTH_SHORT).show()
-                        finish() // Close SignUpActivity
+                        finish()
                     }
                 }
             }
