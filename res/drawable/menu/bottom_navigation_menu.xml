@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home"
+        android:title="Beranda"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_expenses"
+        android:icon="@drawable/pengeluaran"
+        android:title="Pengeluaran"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_set_budget"
+        android:icon="@drawable/photo"
+        android:title="Set Budget"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_favorites"
+        android:icon="@drawable/favorite"
+        android:title="Recommendation"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/profil"
+        android:title="Profil"
+        app:showAsAction="ifRoom" />
+</menu>
