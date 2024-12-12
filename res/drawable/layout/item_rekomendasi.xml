@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Judul Rekomendasi -->
+        <TextView
+            android:id="@+id/tvRecommendationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Itinerary Recommendation"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_tertiary"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Detail Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="16sp"
+            android:textColor="@color/md_theme_tertiary"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Harga -->
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textSize="14sp"
+            android:textColor="@color/md_theme_tertiary"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Kota -->
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="City"
+            android:textSize="14sp"
+            android:textColor="@color/md_theme_tertiary" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Header (Settings Title) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setting"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/md_theme_tertiary"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Dark Mode Switch (aligned to the left) -->
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchTheme"
+        android:text="@string/dark_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/md_theme_tertiary"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Notification Switch (aligned to the left) -->
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchNotification"
+        android:text="@string/notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/md_theme_tertiary"
+        android:layout_marginBottom="24dp" />
+
+
+    <!-- Logout Button (aligned to the left, with improved contrast) -->
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/md_theme_error"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center_horizontal" />
+
+
+</LinearLayout>

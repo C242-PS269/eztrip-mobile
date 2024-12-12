@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background">
+
+    <!-- Top Rounded Background -->
+    <View
+        android:id="@+id/topBackground"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/rounded_background" />
+
+    <!-- Title for Expenses, Centered -->
+    <TextView
+        android:id="@+id/tvExpensesTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Expenses"
+        android:textSize="24sp"
+        android:textColor="@color/md_theme_tertiary"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Total Amount Display -->
+    <TextView
+        android:id="@+id/tvTotalAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total: Rp 0.00"
+        android:textSize="20sp"
+        android:textColor="@color/md_theme_tertiary"
+        android:gravity="center"
+        android:layout_below="@id/tvExpensesTitle"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Add Manual Text and Icon -->
+    <LinearLayout
+        android:id="@+id/addManualLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvTotalAmount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:background="@drawable/box_background2"
+        android:padding="8dp">
+
+        <!-- Text "Tambahkan Manual" -->
+        <TextView
+            android:id="@+id/tvAddManual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tambahkan Manual"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif" />
+
+        <!-- Icon Next to Text -->
+        <ImageView
+            android:id="@+id/iconAddManual"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/addicon4"
+            android:contentDescription="Add Icon" />
+    </LinearLayout>
+
+    <!-- Expenses Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigation"
+        android:layout_below="@id/addManualLayout"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- RecyclerView for Expenses -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvExpenses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation_menu"
+        app:labelVisibilityMode="labeled"
+        android:background="@color/md_theme_onPrimary"
+        app:itemIconTint="@color/md_theme_outline"
+        app:itemTextColor="@color/md_theme_outline" />
+</RelativeLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Gambar -->
+    <ImageView
+        android:id="@+id/imageViewKategori"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/image_desc" />
+
+    <!-- Icon Favorit (di sebelah kanan gambar dan judul) -->
+    <ImageView
+        android:id="@+id/imageViewFavorite"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/favorite"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/favorite_border" />
+
+    <!-- Content (Judul dan TextView) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="start"
+        android:paddingTop="200dp"
+        android:paddingLeft="16dp">
+
+        <!-- Judul Detail Kategori -->
+        <TextView
+            android:id="@+id/textViewJudulKategori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail Kategori"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <!-- TextView 1 -->
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView 1"
+            android:layout_marginTop="8dp" />
+
+        <!-- TextView 2 -->
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView 2"
+            android:layout_marginTop="8dp" />
+
+        <!-- TextView 3 -->
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView 3"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:menu="@menu/bottom_navigation_menu"
+        app:labelVisibilityMode="labeled"
+        android:background="@android:color/white"
+        app:itemIconTint="@color/bottom_nav_icon_color"
+        app:itemTextColor="@color/bottom_nav_text_color" />
+
+</FrameLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/reviewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_write_review"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/md_theme_tertiary"
+        android:layout_marginTop="175dp"
+        android:paddingBottom="8dp"/>
+
+    <!-- Rating Bar -->
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/md_theme_tertiary"
+        android:paddingBottom="16dp"/>
+
+    <!-- Description Input -->
+    <EditText
+        android:id="@+id/reviewDescription"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="@string/hint_review_description"
+        android:background="@android:drawable/edit_text"
+        android:gravity="top"
+        android:padding="8dp"
+        android:inputType="textMultiLine"
+        android:importantForAutofill="yes"
+        android:autofillHints="text"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Spinner to choose place type (Tours, Accommodation, Culinaries) -->
+    <Spinner
+        android:id="@+id/placeTypeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_submit"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/md_theme_primaryContainer"
+        android:textColor="@android:color/white"
+        android:theme="@style/Widget.MaterialComponents.Button"/>
+
+</LinearLayout>

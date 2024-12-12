@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Filter Culinary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_tertiary"
+        android:layout_marginBottom="16dp" />
+    <!-- Max Price -->
+    <EditText
+        android:id="@+id/etMaxPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Max Price"
+        android:textColor="@color/md_theme_tertiary"
+        android:layout_marginTop="50dp"
+        android:inputType="number" />
+
+    <!-- Min Rating -->
+    <EditText
+        android:id="@+id/etMinRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etMaxPrice"
+        android:hint="Min Rating"
+        android:textColor="@color/md_theme_tertiary"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="16dp" />
+
+    <!-- Category (changed Spinner to EditText) -->
+    <EditText
+        android:id="@+id/etCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etMinRating"
+        android:textColor="@color/md_theme_tertiary"
+        android:hint="Category (e.g., Bar, Restaurant, etc.)"
+        android:layout_marginTop="16dp" />
+
+    <!-- City -->
+    <EditText
+        android:id="@+id/etCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etCategory"
+        android:hint="City"
+        android:textColor="@color/md_theme_tertiary"
+        android:layout_marginTop="16dp" />
+
+    <!-- Apply Filter Button -->
+    <Button
+        android:id="@+id/btnApplyFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etCity"
+        android:text="Apply Filter"
+        android:backgroundTint="@color/md_theme_secondary"
+        android:layout_marginTop="16dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</RelativeLayout>

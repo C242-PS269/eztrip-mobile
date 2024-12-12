@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/md_theme_background"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <!-- Container Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Title Text -->
+        <TextView
+            android:id="@+id/tvRecommendation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Card Title"
+            android:textSize="18sp"
+            android:textColor="@color/md_theme_tertiary"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <!-- ImageView for Image -->
+        <ImageView
+            android:id="@+id/ivCardImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bali_tours2" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

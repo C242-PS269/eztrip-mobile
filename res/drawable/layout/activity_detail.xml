@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- LinearLayout is inside ScrollView so it can scroll -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Add ImageView at the top, will not scroll -->
+        <ImageView
+            android:id="@+id/tvPlaceImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/toursbanner"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/place_image_desc" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Place Name"
+            android:textSize="20sp"
+            android:layout_marginTop="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:layout_marginTop="25dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="City"
+            android:layout_marginTop="25dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:layout_marginTop="25dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvGoogleMaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Google Maps"
+            android:layout_marginTop="25dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:layout_marginTop="25dp"
+            android:textSize="16sp" />
+
+        <!-- Add TextView for Rating -->
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rating"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp"
+            android:textColor="@android:color/holo_green_dark" />
+
+        <!-- Add TextView for Place ID -->
+        <TextView
+            android:id="@+id/tvPlaceId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Place ID"
+            android:textSize="16sp"
+            android:layout_marginTop="25dp" />
+
+        <!-- Button to navigate to ActivityRating -->
+
+        <!-- RecyclerView to display reviews -->
+        <Button
+            android:id="@+id/btnRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="@color/md_theme_primaryFixed_highContrast"
+            android:text="Rate This Place"
+            android:textColor="@android:color/white"
+            android:theme="@style/Widget.MaterialComponents.Button" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reviewsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+</ScrollView>

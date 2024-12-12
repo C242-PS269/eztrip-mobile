@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/md_theme_background">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rekomendasi"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/md_theme_scrim"
+        android:layout_marginBottom="16dp" />
+
+    <!-- RecyclerView for Recommendations -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRecommendations"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp" />
+
+    <!-- Details Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Price Section -->
+        <TextView
+            android:id="@+id/tvRecommendationTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Detail Rekomendasi"
+            android:textSize="18sp"
+            android:textColor="@color/md_theme_tertiary"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Harga"
+                android:layout_weight="1"
+                android:textColor="@color/md_theme_tertiary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 1.650.000"
+                android:textColor="@color/md_theme_tertiary" />
+        </LinearLayout>
+
+        <!-- Remaining Budget Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Sisa Budget"
+                android:layout_weight="1"
+                android:textColor="@color/md_theme_tertiary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvRemainingBudget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 350.000"
+                android:textColor="@color/md_theme_tertiary" />
+        </LinearLayout>
+
+        <!-- City Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Kota"
+                android:layout_weight="1"
+                android:textColor="@color/md_theme_tertiary"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Denpasar"
+                android:textColor="@color/md_theme_tertiary" />
+        </LinearLayout>
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/md_theme_primaryContainer"
+            android:text="Simpan ke Favorit"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</LinearLayout>

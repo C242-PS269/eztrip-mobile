@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/md_theme_background">
+
+    <!-- App Logo -->
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logoeztrip"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Username Input -->
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username, email, nomor telepon"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:textColor="@color/md_theme_inverseSurface"
+        android:textColorHint="@color/md_theme_inverseSurface"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Phone Number Input -->
+    <EditText
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan nomor telepon"
+        android:inputType="phone"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:textColor="@color/md_theme_inverseSurface"
+        android:textColorHint="@color/md_theme_inverseSurface"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Buat password (8-12 karakter)"
+        android:inputType="textPassword"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:textColor="@color/md_theme_inverseSurface"
+        android:textColorHint="@color/md_theme_inverseSurface"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Confirm Password Input -->
+    <EditText
+        android:id="@+id/etConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan ulang password"
+        android:inputType="textPassword"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:textColor="@color/md_theme_inverseSurface"
+        android:textColorHint="@color/md_theme_inverseSurface"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Show/Hide for Both Passwords -->
+    <TextView
+        android:id="@+id/tvTogglePasswords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp"
+        android:gravity="end"
+        android:layout_gravity="end"
+        android:contentDescription="Toggle Both Passwords Visibility" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Daftar"
+        android:background="@drawable/button_background"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
+        android:padding="12dp"
+        android:textSize="16sp" />
+
+    <!-- Divider Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/md_theme_inverseSurface"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp" />
+</LinearLayout>

@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background">
+
+    <!-- Header with Title -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_theme_tertiary"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvCategoryHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restoran"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
+
+    <!-- Search Bar with Filter Icon -->
+    <RelativeLayout
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerLayout"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/md_theme_outline"
+            app:boxBackgroundMode="filled">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSearch"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_bar"
+                android:hint="@string/search_hint"
+                android:padding="12dp"
+                android:textColor="@color/md_theme_scrim"
+                android:textColorHint="@color/md_theme_scrim"
+                app:drawableEndCompat="@drawable/ic_search" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Filter Icon -->
+        <ImageView
+            android:id="@+id/ivFilter"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/iconfilter"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <!-- RecyclerView for Category Items -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCategories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/searchBar"
+        android:clipToPadding="false"
+        android:padding="16dp"
+        android:layout_above="@id/bottomNavigation"
+        android:scrollbars="vertical" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation_menu"
+        app:labelVisibilityMode="labeled"
+        android:background="@color/md_theme_background"
+        app:itemIconTint="@color/md_theme_outline"
+        app:itemTextColor="@color/md_theme_outline" />
+</RelativeLayout>
